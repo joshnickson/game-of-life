@@ -4,7 +4,6 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 
 class App extends Component {
-
   render() {
     return (
       <div>
@@ -17,14 +16,6 @@ class App extends Component {
   }
 }
 
-function Cell(props) {
-  return (
-    <p>
-      {props.value}
-    </p>
-  );
-}
-
 class Grid extends Component {
   constructor(props) {
     super(props);
@@ -32,21 +23,17 @@ class Grid extends Component {
       cells: Array(100).fill(0),
     };
   }
-  renderCell(i) {
-    return (
-      <Cell
-        value={this.state.cells[i]}
-      />
-    );
-  }
   render() {
     return (
       <div>
-        {this.renderCell(0)}
-      </div>
+        {this.state.cells.map(cell => (
+          <div className="cell" value={cell}>{cell}</div>
+        ))}      
+    </div>
     );
   }
 }
+
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
