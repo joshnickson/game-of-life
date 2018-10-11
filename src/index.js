@@ -4,13 +4,45 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 
 class App extends Component {
+
   render() {
     return (
       <div>
         <h1>Game of Life</h1>
-        <div>
-          'O'
+        <div className='grid'>
+          <Grid />
         </div>
+      </div>
+    );
+  }
+}
+
+function Cell(props) {
+  return (
+    <p>
+      {props.value}
+    </p>
+  );
+}
+
+class Grid extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      cells: Array(100).fill(0),
+    };
+  }
+  renderCell(i) {
+    return (
+      <Cell
+        value={this.state.cells[i]}
+      />
+    );
+  }
+  render() {
+    return (
+      <div>
+        {this.renderCell(0)}
       </div>
     );
   }
