@@ -5,6 +5,7 @@ describe('Viewing the grid', () => {
       .should('contain', 'Game of Life')
     cy.get('.grid')
       .should('contain', 'button')
+    cy.get('.step-button').click()
     cy.get('.cell').should('have.length', 814)
   });
 });

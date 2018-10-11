@@ -8,9 +8,7 @@ class App extends Component {
     return (
       <div>
         <h1>Game of Life</h1>
-        <p>Tick count: <Ticker /></p>
-        <button className="step-button">Step</button>
-        <br/><br/>
+        <Ticker />
         <div className='grid'>
           <Grid />
         </div>
@@ -32,7 +30,7 @@ class Grid extends Component {
     return (
       <div className='cell-container'>
         {this.state.cells.map((cell) => (
-          <button className="cell" value="cell"></button>
+          <button className="cell" value={cell}></button>
         ))}      
     </div>
     );
@@ -45,10 +43,25 @@ class Ticker extends Component {
     this.state = {
       tick: 0
     };
+    this.incrementTick = this.incrementTick.bind(this)
   }
+  
+  incrementTick() {
+    this.setState({
+      tick: this.state.tick + 1
+    })
+  }
+  
   render () {
     return (
-      this.state.tick
+      <div> 
+        <div className='tick-count'>
+          Tick count: {this.state.tick}
+        </div>
+        <div>
+          <button className="step-button" onClick={this.incrementTick}>Step</button><br/>
+        </div>
+      </div>
     )
   }
 }
