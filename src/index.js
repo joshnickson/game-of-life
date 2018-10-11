@@ -8,7 +8,7 @@ class App extends Component {
     return (
       <div>
         <h1>Game of Life</h1>
-        <Ticker />
+          <Ticker />
         <div className='grid'>
           <Grid />
         </div>
@@ -23,7 +23,7 @@ class Grid extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cells: Array(814).fill(false),
+      cells: Array(840).fill(false),
     };
     this.toggleValue = this.toggleValue.bind(this)
   }

@@ -22,6 +22,7 @@ code {
   width: 15px;
   height: 15px;
   border-radius: 0%;
+  margin: 0;
 }
 
 button:focus {
@@ -29,9 +30,12 @@ button:focus {
 }
 
 .dead {
+  border-width: 0.5px;
   background-color: white;
 }
 
 .alive {
   background-color: black;
+  border-width: 0.5px;
+
 }
