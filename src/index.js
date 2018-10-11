@@ -23,14 +23,26 @@ class Grid extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cells: Array(814).fill(0),
+      cells: Array(814).fill(false),
     };
+    this.toggleValue = this.toggleValue.bind(this)
   }
+
+  toggleValue(i) {
+    const cells= this.state.cells.slice();
+    cells[i] = !cells[i];
+    this.setState({cells: cells})
+  }
+
   render() {
     return (
       <div className='cell-container'>
-        {this.state.cells.map((cell) => (
-          <button className="cell" value={cell}></button>
+        {this.state.cells.map((cell, index) => (
+          <button 
+            className={cell ? "alive" : "dead"} 
+            value={cell} 
+            onClick={() => this.toggleValue(index)}>
+          </button>
         ))}      
     </div>
     );
@@ -51,7 +63,7 @@ class Ticker extends Component {
       tick: this.state.tick + 1
     })
   }
-  
+
   render () {
     return (
       <div> 

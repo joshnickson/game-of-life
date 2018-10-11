@@ -20,4 +20,18 @@ code {
 .cell-container button {
   float: left;
   width: 15px;
+  height: 15px;
+  border-radius: 0%;
+}
+
+button:focus {
+  outline: none;
+}
+
+.dead {
+  background-color: white;
+}
+
+.alive {
+  background-color: black;
 }
