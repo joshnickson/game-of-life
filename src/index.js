@@ -8,8 +8,11 @@ class App extends Component {
     return (
       <div>
         <h1>Game of Life</h1>
+        <p>Tick count: <Ticker /></p>
         <div className='grid'>
           <Grid />
+        </div>
+        <div> 
         </div>
       </div>
     );
@@ -31,6 +34,20 @@ class Grid extends Component {
         ))}      
     </div>
     );
+  }
+}
+
+class Ticker extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      tick: 0
+    };
+  }
+  render () {
+    return (
+      this.state.tick
+    )
   }
 }
 
