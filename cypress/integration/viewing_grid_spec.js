@@ -4,7 +4,7 @@ describe('Viewing the grid', () => {
     cy.get('h1')
       .should('contain', 'Game of Life')
     cy.get('.grid')
-      .should('contain', '0')
-    cy.get('.cell').should('have.length', 1000)
+      .should('contain', 'button')
+    cy.get('.cell').should('have.length', 814)
   });
 });

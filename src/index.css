@@ -13,11 +13,11 @@ code {
     monospace;
 }
 
-.cell {
-  float: left;
-  width: 15px;
-}
-
 .cell-container {
   width: 600px;
+}
+
+.cell-container button {
+  float: left;
+  width: 15px;
 }

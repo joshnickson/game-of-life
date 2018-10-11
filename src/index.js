@@ -9,6 +9,8 @@ class App extends Component {
       <div>
         <h1>Game of Life</h1>
         <p>Tick count: <Ticker /></p>
+        <button className="step-button">Step</button>
+        <br/><br/>
         <div className='grid'>
           <Grid />
         </div>
@@ -23,14 +25,14 @@ class Grid extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cells: Array(1000).fill(0),
+      cells: Array(814).fill(0),
     };
   }
   render() {
     return (
       <div className='cell-container'>
-        {this.state.cells.map((cell, index) => (
-          <div className="cell">{cell}</div>
+        {this.state.cells.map((cell) => (
+          <button className="cell" value="cell"></button>
         ))}      
     </div>
     );
