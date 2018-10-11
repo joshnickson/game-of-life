@@ -8,6 +8,9 @@ class App extends Component {
     return (
       <div>
         <h1>Game of Life</h1>
+        <div>
+          'O'
+        </div>
       </div>
     );
   }
