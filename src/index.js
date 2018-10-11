@@ -20,20 +20,19 @@ class Grid extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cells: Array(100).fill(0),
+      cells: Array(1000).fill(0),
     };
   }
   render() {
     return (
-      <div>
-        {this.state.cells.map(cell => (
-          <div className="cell" value={cell}>{cell}</div>
+      <div className='cell-container'>
+        {this.state.cells.map((cell, index) => (
+          <div className="cell">{cell}</div>
         ))}      
     </div>
     );
   }
 }
-
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

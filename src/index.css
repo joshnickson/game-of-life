@@ -12,3 +12,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.cell {
+  float: left;
+  width: 15px;
+}
+
+.cell-container {
+  width: 600px;
+}

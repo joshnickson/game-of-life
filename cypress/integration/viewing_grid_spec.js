@@ -5,6 +5,6 @@ describe('Viewing the grid', () => {
       .should('contain', 'Game of Life')
     cy.get('.grid')
       .should('contain', '0')
-    cy.get('.cell').should('have.length', 100)
+    cy.get('.cell').should('have.length', 1000)
   });
 });
