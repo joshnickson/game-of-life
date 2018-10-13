@@ -3,9 +3,6 @@ describe('Viewing the grid', () => {
     cy.visit('http://localhost:3000');
     cy.get('h1')
       .should('contain', 'Game of Life')
-    cy.get('.grid')
-      .should('contain', 'button')
-    cy.get('.step-button').click()
-    cy.get('.cell').should('have.length', 814)
+    cy.get('.dead').should('have.length', 840)
   });
 });

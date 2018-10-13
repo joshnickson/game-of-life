@@ -8,10 +8,7 @@ class App extends Component {
     return (
       <div>
         <h1>Game of Life</h1>
-          <Ticker />
-        <div className='grid'>
-          <Grid />
-        </div>
+          <Game />
         <div> 
         </div>
       </div>
@@ -19,11 +16,12 @@ class App extends Component {
   }
 }
 
+
 class Grid extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cells: Array(840).fill(false),
+      cells: props.cells
     };
     this.toggleValue = this.toggleValue.bind(this)
   }
@@ -49,11 +47,12 @@ class Grid extends Component {
   }
 }
 
-class Ticker extends Component {
+class Game extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tick: 0
+      tick: 0,
+      cells: Array(840).fill(false),
     };
     this.incrementTick = this.incrementTick.bind(this)
   }
@@ -64,6 +63,12 @@ class Ticker extends Component {
     })
   }
 
+  evolveState() {
+    const cells= this.state.cells.slice();
+    cells[i] = !cells[i];
+    this.setState({cells: cells})
+  }
+
   render () {
     return (
       <div> 
@@ -72,6 +77,9 @@ class Ticker extends Component {
         </div>
         <div>
           <button className="step-button" onClick={this.incrementTick}>Step</button><br/>
+        </div>
+        <div className='grid'>
+          <Grid cells={this.state.cells}/>
         </div>
       </div>
     )
