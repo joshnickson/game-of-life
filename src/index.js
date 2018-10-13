@@ -16,37 +16,6 @@ class App extends Component {
   }
 }
 
-
-class Grid extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      cells: props.cells
-    };
-    this.toggleValue = this.toggleValue.bind(this)
-  }
-
-  toggleValue(i) {
-    const cells= this.state.cells.slice();
-    cells[i] = !cells[i];
-    this.setState({cells: cells})
-  }
-
-  render() {
-    return (
-      <div className='cell-container'>
-        {this.state.cells.map((cell, index) => (
-          <button 
-            className={cell ? "alive" : "dead"} 
-            value={cell} 
-            onClick={() => this.toggleValue(index)}>
-          </button>
-        ))}      
-    </div>
-    );
-  }
-}
-
 class Game extends Component {
   constructor(props) {
     super(props);
@@ -55,20 +24,25 @@ class Game extends Component {
       cells: Array(840).fill(false),
     };
     this.incrementTick = this.incrementTick.bind(this)
+    this.toggleValue = this.toggleValue.bind(this)
   }
   
   incrementTick() {
-    this.setState({
-      tick: this.state.tick + 1
-    })
+    this.setState({tick: this.state.tick + 1});
   }
 
-  evolveState() {
+  toggleValue(i) {
     const cells= this.state.cells.slice();
     cells[i] = !cells[i];
     this.setState({cells: cells})
   }
 
+  checkNeighbours(i) {
+    const y = 40;
+    const neighbors = [y-1, y+1, y, 1, -1, -y, -y-1, -y+1]
+    return neighbors.map((x) => (this.state.cells[i + x]))
+  }
+  
   render () {
     return (
       <div> 
@@ -79,7 +53,16 @@ class Game extends Component {
           <button className="step-button" onClick={this.incrementTick}>Step</button><br/>
         </div>
         <div className='grid'>
-          <Grid cells={this.state.cells}/>
+          <div className='cell-container'>
+          {this.state.cells.map((cell, index) => (
+            <button
+              key={index} 
+              className={cell ? "alive" : "dead"} 
+              value={cell} 
+              onClick={() => this.toggleValue(index)}>
+            </button>
+          ))}      
+          </div>
         </div>
       </div>
     )

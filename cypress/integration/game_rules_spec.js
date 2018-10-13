@@ -17,13 +17,13 @@ describe('Cell state', () => {
   }); 
 });
 
-// describe('Cell death', () => {
-//   it('live cell dies on next tick if fewer than two neighbors', () => {
-//     cy.visit('http://localhost:3000');
-//     cy.get('.cell-container button:first').click()
-//       .invoke('val').should('eq', 'true')
-//     cy.get('.step-button').click()
-//     cy.get('.cell-container button:first')
-//       .invoke('val').should('eq', 'false')  
-//     }); 
-// });
+describe('Cell death', () => {
+  it('live cell dies on next tick if fewer than two neighbors', () => {
+    cy.visit('http://localhost:3000');
+    cy.get('.cell-container button:first').click()
+      .invoke('val').should('eq', 'true')
+    cy.get('.step-button').click()
+    cy.get('.cell-container button:first')
+      .invoke('val').should('eq', 'false')  
+    }); 
+});
