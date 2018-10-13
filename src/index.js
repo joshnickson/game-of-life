@@ -41,7 +41,7 @@ class Game extends Component {
   evolve() {
     const cells= this.state.cells.slice();
     for (let i = 0; i < this.state.cells.length; i++) {
-      if (this.checkNeighbours(i) < 2) {
+      if (this.checkNeighbours(i) < 2 || this.checkNeighbours(i) > 3) {
         cells[i] = false;
       }
     }
