@@ -38,3 +38,15 @@ describe('Cell death', () => {
         .invoke('val').should('eq', 'false')  
     }); 
 });
+
+describe('Cell birth', () => {
+  it('dead comes alive on next tick if exactly three live neighbours', () => {
+    cy.visit('http://localhost:3000');
+    cy.get('.cell-container button').eq(0).click()
+    cy.get('.cell-container button').eq(2).click()
+    cy.get('.cell-container button').eq(40).click()
+    cy.get('.step-button').click()
+    cy.get('.cell-container button').eq(1)
+      .invoke('val').should('eq', 'true')  
+  }); 
+});
