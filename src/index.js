@@ -29,6 +29,7 @@ class Game extends Component {
   
   incrementTick() {
     this.setState({tick: this.state.tick + 1});
+    this.evolve();
   }
 
   toggleValue(i) {
@@ -37,10 +38,21 @@ class Game extends Component {
     this.setState({cells: cells})
   }
 
+  evolve() {
+    const cells= this.state.cells.slice();
+    for (let i = 0; i < this.state.cells.length; i++) {
+      if (this.checkNeighbours(i) < 2) {
+        cells[i] = false;
+      }
+    }
+    this.setState({cells: cells})
+  }
+
   checkNeighbours(i) {
     const y = 40;
     const neighbors = [y-1, y+1, y, 1, -1, -y, -y-1, -y+1]
     return neighbors.map((x) => (this.state.cells[i + x]))
+      .filter(function(x){return x===true}).length
   }
   
   render () {
