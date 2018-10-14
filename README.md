@@ -1,6 +1,8 @@
 # Conway's Game of Life
 Game of life front end web app built in week 10 of Makers. 
 
+<img width="610" alt="screen shot 2018-10-14 at 15 09 10" src="https://user-images.githubusercontent.com/39119623/46917845-3d5ede80-cfc3-11e8-82b7-c3ed7e4162b3.png">
+
 Keywords: React, Javasript, Cypress, TDD
 
 ## Background
