@@ -1,10 +1,13 @@
 # Conway's Game of Life
+Game of life front end web app built in week 10 of Makers. 
 
-![game of life example](../images/Gospers_glider_gun.gif)
+Keywords: React, Javasript, Cypress, TDD
 
-The Game of life is a zero player game developed in the 70s by John Horton Conway. Check out the [wikipedia article](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) for a full description.
-The evolving state of the game is determined by the initial configuration - some configurations become infinitely evolving constellations, others eventually evolve into a stable patterns, whilst others die off completely. 
-It is commonly used as a tech test as it can be solved in many different ways that clearly show the level of the programmer.
+## Background
+
+The Game of life is a zero player game developed in the 70s by John Horton Conway. Check out the [wikipedia article](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life). 
+
+I undertook this project to test my TDD process, logical programming and also to continue my own learning with React.
 
 ### The Brief
 
@@ -19,14 +22,42 @@ The rules are as follows:
 
 Write code that is capable of calculating each new generation, given a starter board. Although you don't have to build a visualisation tool to be able to see the evolution, it should be easy to extend the program to add on a web or command line ui.
 
-## User Stories
+## How to Use
+Clone this repo:
 ```
-As a human
+git clone https://github.com/joshnickson/game-of-life.git
+```
+
+Install dependencies:
+```
+npm install
+```
+Run the app locally on your machine:
+```
+npm start OR yarn start
+```
+
+## Testing
+The game was built test-first using Cypress for end-to-end testing.
+
+Open up the testing suite with: 
+```
+yarn cypress:open
+```
+
+I used the following user stories as a guide for the feature tests:
+
+### User Stories
+```
+As a player of games
 So that I can I marvel in the wonder that is game of life
 I want to be able to load the webpage and see a grid
 
-The player should be able to place cells on the grid
+As a player
+So that I can set the initial game configuration
+I want to be able to click on a cell to change its state
 
-The game should evolve in 'ticks'
-
+As a player
+So that I can see the game evolve
+I want to be able to click a button that updates the grid
 ```
